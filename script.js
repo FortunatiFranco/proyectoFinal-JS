@@ -25,19 +25,19 @@ const botonSiguiente = document.getElementById("btnsiguiente")
 
 const galeriaDeImagenes = [
     {
-        src: "https://www.backseries.com/wp-content/uploads/nike-branded-apparel-coleccion-de-ropa-hoodie-portada.jpg",
+        src: "https://media.tycsports.com/files/2024/06/05/726440/real-madrid-nueva-camiseta_862x485.webp?v=1",
         alt: "publicidad Real Madrid" 
     },
     {
-        src: "/galeria/chelsea-carrusel.jpg",
+        src: "https://img.planetafobal.com/2025/05/chelsea-fc-nike-home-kit-2025-2026-trq.webp",
         alt: "publicidad Chelsea"
     },
     {
-        src: "/galeria/river-carrusel.jpg",
+        src: "https://www.infobae.com/resizer/v2/2JJ5MTLEW5EIHPDWUNEO23OVEQ.jpg?auth=0b21c32f1e6b202ed1c3b48a75f8fb1f2ed13226508e7afda01d367e0909bb29&smart=true&width=350&height=197&quality=85",
         alt: "publicidad River"
     },
     {
-        src: "/galeria/messi-adidas.jpg",
+        src: "https://pbs.twimg.com/media/FkQm_SuXwAIQIDi.jpg",
         alt: "La Cabra con adidas"
     }
 ];
