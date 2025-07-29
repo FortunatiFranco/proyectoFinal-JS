@@ -29,7 +29,7 @@ const galeriaDeImagenes = [
         alt: "publicidad Real Madrid" 
     },
     {
-        src: "https://www.record.com.mx/sites/default/files/inline-images/R%C3%89CORD%283421%29.jpg",
+        src: "https://www.backseries.com/wp-content/uploads/nike-branded-apparel-coleccion-de-ropa-hoodie-portada.jpg",
         alt: "publicidad Psg"
     },
     {
