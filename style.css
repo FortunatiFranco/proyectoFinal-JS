@@ -75,7 +75,7 @@ body.modo-noche{
 }
 
 #listaProductos img{
-    width: 450;
+    width: 400;
     height: 400;
     object-fit: cover;
     border: 2px solid red;
