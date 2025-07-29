@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestite bien pavote</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="boton-noche">
+            <button id="modoOscuro">Modo Oscuro</button>
+    </div>
+    <h1>VESTITE BIEN PAVOTE</h1>
+    <div id="carrusel-cont">
+            <button id="btnanterior"><</button>
+            <img id="imagenCarrusel" src="./galeria/realmadrid-carrusel.jpg" alt="messi adidas">
+            <button id="btnsiguiente">></button>
+        </div>
+        <h2>TIENDA</h2>
+        <div id="listaProductos"></div>
+
+        <h3 class="tituloForm">FORMULARIO</h3>
+        <p class="texto-h3">Complete los siguientes campos del formulario para obtener un estimado del valor en cuotas</p>
+
+        <div class="formulario">
+            <form id="miFormulario">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="sueldo">Sueldo Bruto:</label>
+                <input type="number" name="sueldo" id="sueldo" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div id="resultadoSueldo"></div>
+</body>
+</html>
