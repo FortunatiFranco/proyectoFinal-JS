@@ -29,8 +29,8 @@ const galeriaDeImagenes = [
         alt: "publicidad Real Madrid" 
     },
     {
-        src: "https://www.backseries.com/wp-content/uploads/nike-branded-apparel-coleccion-de-ropa-hoodie-portada.jpg",
-        alt: "publicidad Psg"
+        src: "https://i0.wp.com/futbol433.com/wp-content/uploads/2024/07/lautaro-martinez-presentacion-de-la-nueva-camiseta-de-inter-de-milan_862x485.webp?ssl=1",
+        alt: "publicidad Inter"
     },
     {
         src: "https://www.ole.com.ar/2025/06/11/c867XY_U9_720x0__1.jpg",
