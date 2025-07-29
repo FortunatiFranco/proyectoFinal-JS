@@ -29,8 +29,8 @@ const galeriaDeImagenes = [
         alt: "publicidad Real Madrid" 
     },
     {
-        src: "https://img.planetafobal.com/2025/05/chelsea-fc-nike-home-kit-2025-2026-trq.webp",
-        alt: "publicidad Chelsea"
+        src: "https://www.record.com.mx/sites/default/files/inline-images/R%C3%89CORD%283421%29.jpg",
+        alt: "publicidad Psg"
     },
     {
         src: "https://www.ole.com.ar/2025/06/11/c867XY_U9_720x0__1.jpg",
