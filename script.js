@@ -25,7 +25,7 @@ const botonSiguiente = document.getElementById("btnsiguiente")
 
 const galeriaDeImagenes = [
     {
-        src: "https://media.tycsports.com/files/2024/06/05/726440/real-madrid-nueva-camiseta_862x485.webp?v=1",
+        src: "https://img2.rtve.es/n/16134131",
         alt: "publicidad Real Madrid" 
     },
     {
@@ -33,7 +33,7 @@ const galeriaDeImagenes = [
         alt: "publicidad Chelsea"
     },
     {
-        src: "https://www.infobae.com/resizer/v2/2JJ5MTLEW5EIHPDWUNEO23OVEQ.jpg?auth=0b21c32f1e6b202ed1c3b48a75f8fb1f2ed13226508e7afda01d367e0909bb29&smart=true&width=350&height=197&quality=85",
+        src: "https://www.ole.com.ar/2025/06/11/c867XY_U9_720x0__1.jpg",
         alt: "publicidad River"
     },
     {
