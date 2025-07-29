@@ -3,4 +3,5 @@ la cual cuenta con un carrusel de presentación, ademas de un catalogo pequeño 
 luego sigue un formulario a completar, el cual tomara sus datos y los almacenara en la nube, y ademas simulara sobre 
 su sueldo bruto, con una funcion, el monto de financiazión para pagar en cuotas.
 A esta pagina ademas, le agregue un boton para efectuar el cambio de dia a noche.
-Muchas Gracias!!
+Una ultima aclaración, no llegue a tiempo para darle una funcionalidad al boton de comprar del catalogo, intente se los juro pero me falta mas practica.
+Muchas gracias !
