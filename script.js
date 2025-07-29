@@ -25,7 +25,7 @@ const botonSiguiente = document.getElementById("btnsiguiente")
 
 const galeriaDeImagenes = [
     {
-        src: "/galeria/realmadrid-carrusel.jpg",
+        src: "https://www.backseries.com/wp-content/uploads/nike-branded-apparel-coleccion-de-ropa-hoodie-portada.jpg",
         alt: "publicidad Real Madrid" 
     },
     {
