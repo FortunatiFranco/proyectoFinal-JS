@@ -25,19 +25,19 @@ const botonSiguiente = document.getElementById("btnsiguiente")
 
 const galeriaDeImagenes = [
     {
-        src: "/galeria/realmadrid-carrusel.jpg",
+        src: "./galeria/realmadrid-carrusel.jpg",
         alt: "publicidad Real Madrid" 
     },
     {
-        src: "/galeria/chelsea-carrusel.jpg",
+        src: "./galeria/chelsea-carrusel.jpg",
         alt: "publicidad Chelsea"
     },
     {
-        src: "/galeria/river-carrusel.jpg",
+        src: "./galeria/river-carrusel.jpg",
         alt: "publicidad River"
     },
     {
-        src: "/galeria/messi-adidas.jpg",
+        src: "./galeria/messi-adidas.jpg",
         alt: "La Cabra con adidas"
     }
 ];
