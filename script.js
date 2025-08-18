@@ -19,30 +19,32 @@ if(temaGuardado === "noche"){
     body.classList.remove("modo-noche")
 };
 
+//--------------------------------------------------------------------
+
 const imagenDeCarrusel = document.getElementById("imagenCarrusel");
 const botonAnterior = document.getElementById("btnanterior");
 const botonSiguiente = document.getElementById("btnsiguiente")
 
 const galeriaDeImagenes = [
     {
-        src: "https://img2.rtve.es/n/16134131",
-        alt: "publicidad Real Madrid" 
+        src: "https://www.lolitamoda.com/uploads/post/image/207/portada.jpg",
+        alt: "Publicidad Lacoste" 
     },
     {
-        src: "https://i0.wp.com/futbol433.com/wp-content/uploads/2024/07/lautaro-martinez-presentacion-de-la-nueva-camiseta-de-inter-de-milan_862x485.webp?ssl=1",
-        alt: "camiseta Inter"
+        src: "https://d22fxaf9t8d39k.cloudfront.net/b01e57458380d132906692052f2eaa4e4873a011993aefe4a4d575c6c0a1c93d138046.jpg",
+        alt: "Publicidad Supreme"
     },
     {
-        src: "https://imbictoz.com/wp-content/uploads/2024/10/camiseta-lyon-primera-equipacion-2024-2025-imagen.webp",
-        alt: "camiseta Lyon"
+        src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEMSFYONp1jM-2Ey_B7mMe8nAoV-UbU8NtnieG8ymuCbXxjbrkzslnXVd_bwu7wA8NeS8xUPAovGc1BMPr5B-8Nf-ouHULpXiu2Och0T9jbgJDd2liR9_YTzDyUHh_OtDmClIsiNmjUgOS/s1600/Tommy+Hilfiger+UNI+01+FW14.jpg",
+        alt: "Publicidad Tommy"
     },
     {
-        src: "https://www.ole.com.ar/2025/06/11/c867XY_U9_720x0__1.jpg",
-        alt: "publicidad River"
+        src: "https://media.licdn.com/dms/image/v2/C5112AQF0ZMDG0J6peA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1551265647160?e=1759968000&v=beta&t=Jyjbu19bFd6c3NUtDCidD8E8WJF0nuMiz8BwJnjngd8",
+        alt: "publicidad Levis"
     },
     {
-        src: "https://pbs.twimg.com/media/FkQm_SuXwAIQIDi.jpg",
-        alt: "La Cabra con adidas"
+        src: "https://www.webretail.com.ar/wp-content/uploads/2023/10/Gnota_67863.jpg",
+        alt: "Publicidad Adidas"
     }
 ];
 
@@ -71,37 +73,140 @@ botonSiguiente.addEventListener("click",()=>{
 
 actualizarImagen();
 
-const productos = [
-    {
-        imagen: "https://www.backseries.com/wp-content/uploads/nike-branded-apparel-coleccion-de-ropa-hoodie-portada.jpg",
-        nombre: "Campera Nike",
-        precio: 135000
-    },
-    {
-        imagen: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f0fef5f7-8c96-459b-af86-d6302513f3e0/B+NSW+TCH+FLC+SSNL+TF%2B+WR+FZ.png",
-        nombre: "Campera Niños",
-        precio: 95000
-    },
-    {
-        imagen: "https://d22fxaf9t8d39k.cloudfront.net/09b2676fc9033ee0994e3c0ed0634a67d19de39b60ff6e4f5ff572c74051610552085.jpg",
-        nombre: "Camiseta Aleti",
-        precio: 120000
-    },
-];
+//---------------------------------------------------------------------------
+const productList = document.getElementById('listaProd');
+const verCarrito = document.getElementById('CarritoBtn');
+const contadorCarrito = document.getElementById('Carrito-Contador');
 
-const contenedor = document.getElementById ("listaProductos");
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-productos.forEach(producto =>{
-    const div = document.createElement("div");
-    div.innerHTML = `
-    <img src="${producto.imagen}" alt="${producto.nombre}">
-    <h3>${producto.nombre}</h3>
-    <p>Precio: $${producto.precio}</p>
-    <button class="comprar">Comprar</button>`;
-    contenedor.appendChild(div)
+function updateCartCount(){
+    contadorCarrito.textContent = cart.reduce((acc, item)=> acc + item.quantity, 0)
+}
+
+function agregarAlCarrito(product){
+    const existingProduct = cart.find((item)=> item.id === product.id)
+    if(existingProduct){
+        existingProduct.quantity += 1
+    }else{
+        cart.push({...product, quantity: 1})
+    }
+    localStorage.setItem('cart',JSON.stringify(cart));
+    updateCartCount()
+    Toastify({
+        text: `${product.name} agregado al carrito`,
+        duration: 2000,
+        gravity: "bottom",
+        position: "right",
+        backgroundColor: "linear-gradient(to right, #F527E0, #27F579)",
+        stopOnFocus: true,
+    }).showToast()
+}
+
+function imprimirProductos(productos){
+    productList.innerHTML = ""
+    productos.forEach((producto) => {
+        const productosEnDiv = document.createElement ('div')
+        productosEnDiv.className.add('products-card')
+        productosEnDiv.innerHTML = `
+    <image src="${producto.image}" alt="${producto.name}/>"
+    <h3>${producto.name}</h3>
+    <p>$ ${producto.price}</p>
+    <button data-id="${producto.id}">Agregar al carrito</button>
+    `;
+    productList.appendChild(productosEnDiv);
+})
+
+document.querySelectorAll(".productosEnDiv button").forEach((button)=>{
+    button.addEventListener("click",(evt)=>{
+        const productsId = parseInt(evt.target.dataset.id)
+        const productAdd = productos.find((item)=> item.id === productsId)
+        if(productsId){
+            agregarAlCarrito(productAdd)
+        }
+    })
+})
+}
+    
+async function fetchURL(){
+    try{
+    const fetchProducts = await fetch('products.json');
+    if(!fetchProducts.ok){
+        throw new Error("Error de respuesta de API", error);
+    }
+    const productos = await fetchProducts.json;
+    imprimirProductos(productos)
+}catch{
+    console.error('Error al encontrar API', error);
+}
+}
+
+function animacionCarrito(){
+    console.table(cart)
+    if(cart.length === 0){
+        Swal.fire({
+            icon: 'info',
+            title: "Carrito vacio",
+            text: "Aun no hay productos agregados al carrito"
+        })
+        return;
+    }
+    let cartContent = '<ul style="list-style: none; padding: 0;">';
+    let total = 0;
+    cart.forEach((item) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    cartContent += `<li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dotted #ccc; padding-bottom: 5px;">
+    <span>${item.name} x ${item.quantity}</span>
+    <span>$${itemTotal.toFixed(2)} 
+    <button class="remove-from-cart-btn" data-id="${item.id}" style="background-color: #dc3545; color: white; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer; margin-left: 10px;">X</button>
+    </span>
+    </li>`;
+    });
+    cartContent += '</ul>'
+    cartContent += `<p style="font-weight: bold; font-size: 1.2rem; text-align: right; margin-top: 20px;">Total: $${total.toFixed(2)}</p>`;
+
+    Swal.fire({
+        title: "Tu Carrito de Compras",
+        html: cartContent,
+        width: 600,
+        showCancelButton: true,
+        confirmButtonText: "Finalizar Compra",
+        cancelButtonText: "Seguir Comprando",
+        didOpen: () => {
+            document.querySelectorAll(".remove-from-cart-btn").forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    const productIdToRemove = parseInt(event.target.dataset.id);
+                    removeFromCart(productIdToRemove);
+            showCart();
+        });
+    });
+},
+}).then((result) => {
+    if (result.isConfirmed) {
+        Swal.fire({
+            icon: "success",
+            title: "Compra realizada",
+            text: `Gracias por tu compra!`,
+        });
+        cart = [];
+        localStorage.removeItem("cart");
+        updateCartCount();
+    }
 });
+}
 
+function removeFromCart(productId) {
+    cart = cart.filter((item) => item.id !== productId);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+}
 
+verCarrito.addEventListener('click', showCart);
+updateCartCount()
+fetchURL()
+
+//--------------------------------------------------------------------------
 const formularioJs = document.getElementById("miFormulario");
 formularioJs.addEventListener("submit",(event)=>{
     event.preventDefault();

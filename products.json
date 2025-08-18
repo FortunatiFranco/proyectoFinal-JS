@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Chomba Lacoste" ,
+        "price": 140.00,
+        "image": "https://newsport.vtexassets.com/arquivos/ids/19497978/DF3364236LE-A.jpg?v=638639847738030000"
+    },
+    {
+        "id": 2,
+        "name": "Buzo Lacoste",
+        "price": 250.00,
+        "image": "https://newsport.vtexassets.com/arquivos/ids/19538642-800-auto?v=638651227346570000&width=800&height=auto&aspect=true"
+    },
+    {
+        "id": 3,
+        "name": "Remera Tommy-Hilfiger",
+        "price": 100.00,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_793949-MLA84167013206_052025-O.webp"
+    },
+    {
+        "id": 4,
+        "name": "Buzo Tommy-Hilfiger",
+        "price": 210.00,
+        "image": "https://tommyargentina.vtexassets.com/arquivos/ids/243212-800-auto?v=638808482328500000&width=800&height=auto&aspect=true"
+    },
+    {
+        "id": 5,
+        "name": "Remera Supreme",
+        "price": 170.00,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_770734-MLA85117315014_052025-O.webp"
+    },
+    {
+        "id": 6,
+        "name": "Buzo Supreme",
+        "price": 320.00,
+        "image": "https://media.gotrendier.com.co/media/p/2024/05/10/n_E008kXelaWjKhm.6ed339eda4a4767f.jpeg"
+    }
+]

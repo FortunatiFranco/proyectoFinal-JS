@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vestite bien pavote</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer ></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer ></script>
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
 </head>
@@ -11,6 +13,7 @@
     <div class="boton-noche">
             <button id="modoOscuro">Modo Oscuro</button>
     </div>
+    <button class="CarritoBtn">Carrito <span id="Carrito-Contador">(0)</span></button>
     <h1>VESTITE BIEN PAVOTE</h1>
     <div id="carrusel-cont">
             <button id="btnanterior"><</button>
@@ -18,7 +21,7 @@
             <button id="btnsiguiente">></button>
         </div>
         <h2>TIENDA</h2>
-        <div id="listaProductos"></div>
+        <div id="listaProd"></div>
 
         <h3 class="tituloForm">FORMULARIO</h3>
         <p class="texto-h3">Complete los siguientes campos del formulario para obtener un estimado del valor en cuotas</p>
