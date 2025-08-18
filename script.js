@@ -91,7 +91,7 @@ function agregarAlCarrito(product){
     }else{
         cart.push({...product, quantity: 1})
     }
-    localStorage.setItem('cart',JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount()
     Toastify({
         text: `${product.name} agregado al carrito`,
@@ -107,9 +107,9 @@ function imprimirProductos(productos){
     productList.innerHTML = ""
     productos.forEach((producto) => {
         const productosEnDiv = document.createElement ('div');
-        productosEnDiv.className.add('products-card')
+        productosEnDiv.classList.add('products-card')
         productosEnDiv.innerHTML = `
-    <image src="${producto.image}" alt="${producto.name}/>"
+    <img src="${producto.image}" alt="${producto.name}/>"
     <h3>${producto.name}</h3>
     <p>$ ${producto.price}</p>
     <button data-id="${producto.id}">Agregar al carrito</button>
@@ -117,7 +117,7 @@ function imprimirProductos(productos){
     productList.appendChild(productosEnDiv);
 })
 
-document.querySelectorAll(".productosEnDiv button").forEach((button)=>{
+document.querySelectorAll(".products-card button").forEach((button)=>{
     button.addEventListener("click",(evt)=>{
         const productsId = parseInt(evt.target.dataset.id)
         const productAdd = productos.find((item)=> item.id === productsId)
