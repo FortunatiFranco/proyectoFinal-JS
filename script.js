@@ -106,7 +106,7 @@ function agregarAlCarrito(product){
 function imprimirProductos(productos){
     productList.innerHTML = ""
     productos.forEach((producto) => {
-        const productosEnDiv = document.createElement ('div')
+        const productosEnDiv = document.createElement ('div');
         productosEnDiv.className.add('products-card')
         productosEnDiv.innerHTML = `
     <image src="${producto.image}" alt="${producto.name}/>"
