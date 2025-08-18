@@ -109,7 +109,7 @@ function imprimirProductos(productos){
         const productosEnDiv = document.createElement ('div');
         productosEnDiv.classList.add('products-card')
         productosEnDiv.innerHTML = `
-    <img src="${producto.image}" alt="${producto.name}/>"
+    <img src="${producto.image}" alt="${producto.name}"/>
     <h3>${producto.name}</h3>
     <p>$ ${producto.price}</p>
     <button data-id="${producto.id}">Agregar al carrito</button>
@@ -159,7 +159,7 @@ function animacionCarrito(){
     cartContent += `<li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dotted #ccc; padding-bottom: 5px;">
     <span>${item.name} x ${item.quantity}</span>
     <span>$${itemTotal.toFixed(2)} 
-    <button class="remove-from-cart-btn" data-id="${item.id}" style="background-color: #dc3545; color: white; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer; margin-left: 10px;">X</button>
+    <button class="remove-from-cart-btn" data-id="${item.id}" style="background-color: #dc3545; color: white; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer; margin-left:10px;">X</button>
     </span>
     </li>`;
     });
