@@ -1,7 +1,4 @@
-En esta segunda entrega, mi foco fue crear una pagina que simule una pagina de compras de prendas deportivas,
-la cual cuenta con un carrusel de presentación, ademas de un catalogo pequeño de articulos de compra importado desde js,
-luego sigue un formulario a completar, el cual tomara sus datos y los almacenara en la nube, y ademas simulara sobre 
-su sueldo bruto, con una funcion, el monto de financiazión para pagar en cuotas.
-A esta pagina ademas, le agregue un boton para efectuar el cambio de dia a noche.
-Una ultima aclaración, no llegue a tiempo para darle una funcionalidad al boton de comprar del catalogo, intente se los juro pero me falta mas practica.
-Muchas gracias !
+ En este proyecto final, tuve que apoyarme mucho en el ejemplo de Adrian sobre el carrito,
+esto debido a que si bien complete el material teorico y lei y repase los codigos uno por uno,
+necesito mas tiempo para practicar, el cual en estos dias voy a poner enpeño, por que mi trabajo
+me limita un poco en ese sentido, pero mi idea es repasarlo hasta que no necesite mas ayuda de un repositorio ajeno.

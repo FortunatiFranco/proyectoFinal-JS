@@ -202,7 +202,7 @@ function removeFromCart(productId) {
     updateCartCount();
 }
 
-verCarrito.addEventListener('click', showCart);
+verCarrito.addEventListener('click', animacionCarrito);
 updateCartCount()
 fetchURL()
 
