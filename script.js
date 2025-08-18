@@ -136,7 +136,7 @@ async function fetchUrl(){
     }
     const productos = await fetchProducts.json();
     imprimirProductos(productos)
-}catch{
+}catch (error){
     console.error('Error al encontrar API', error);
 }
 }
