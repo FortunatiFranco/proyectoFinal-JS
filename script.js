@@ -128,13 +128,13 @@ document.querySelectorAll(".productosEnDiv button").forEach((button)=>{
 })
 }
     
-async function fetchURL(){
+async function fetchUrl(){
     try{
     const fetchProducts = await fetch('products.json');
     if(!fetchProducts.ok){
         throw new Error("Error de respuesta de API", error);
     }
-    const productos = await fetchProducts.json;
+    const productos = fetchProducts.json;
     imprimirProductos(productos)
 }catch{
     console.error('Error al encontrar API', error);
@@ -204,7 +204,7 @@ function removeFromCart(productId) {
 
 verCarrito.addEventListener('click', animacionCarrito);
 updateCartCount()
-fetchURL()
+fetchUrl()
 
 //--------------------------------------------------------------------------
 const formularioJs = document.getElementById("miFormulario");
