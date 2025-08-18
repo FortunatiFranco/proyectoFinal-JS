@@ -134,7 +134,7 @@ async function fetchUrl(){
     if(!fetchProducts.ok){
         throw new Error("Error de respuesta de API", error);
     }
-    const productos = fetchProducts.json;
+    const productos = await fetchProducts.json();
     imprimirProductos(productos)
 }catch{
     console.error('Error al encontrar API', error);
