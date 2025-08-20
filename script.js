@@ -31,7 +31,7 @@ const galeriaDeImagenes = [
         alt: "Publicidad Lacoste" 
     },
     {
-        src: "https://d22fxaf9t8d39k.cloudfront.net/b01e57458380d132906692052f2eaa4e4873a011993aefe4a4d575c6c0a1c93d138046.jpg",
+        src: "https://streetweardynamic.wordpress.com/wp-content/uploads/2020/04/person-holding-red-and-white-supreme-leather-duffel-bag-outdoor.jpg?w=910",
         alt: "Publicidad Supreme"
     },
     {
@@ -43,7 +43,7 @@ const galeriaDeImagenes = [
         alt: "publicidad Levis"
     },
     {
-        src: "https://www.webretail.com.ar/wp-content/uploads/2023/10/Gnota_67863.jpg",
+        src: "https://static.euronews.com/articles/stories/08/59/05/26/808x608_cmsv2_75aa317e-1504-50c0-8d93-325ce11ece0e-8590526.jpg",
         alt: "Publicidad Adidas"
     }
 ];
@@ -74,101 +74,104 @@ botonSiguiente.addEventListener("click",()=>{
 actualizarImagen();
 
 //---------------------------------------------------------------------------
-const productList = document.getElementById('listaProd');
-const verCarrito = document.getElementById('CarritoBtn');
-const contadorCarrito = document.getElementById('Carrito-Contador');
+const verCarrito = document.getElementById('ver-carrito');
+const contadorCarrito = document.getElementById('contador-carrito');
+const productList = document.getElementById('product-list');
 
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let carrito = JSON.parse(localStorage.getItem('carrito')) || []
 
-function updateCartCount(){
-    contadorCarrito.textContent = cart.reduce((acc, item)=> acc + item.quantity, 0)
+
+function updateContador(){
+    contadorCarrito.textContent = carrito.reduce((acc, item)=> acc + item.quantity, 0)
 }
 
-function agregarAlCarrito(product){
-    const existingProduct = cart.find((item)=> item.id === product.id)
-    if(existingProduct){
-        existingProduct.quantity += 1
+function agregarAlCarrito(productos){
+    const productAdd = carrito.find((p)=> p.id ===productos.id)
+    if(productAdd){
+        productAdd.quantity += 1
     }else{
-        cart.push({...product, quantity: 1})
+        carrito.push({...productos, quantity: 1})
     }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount()
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    updateContador()
     Toastify({
-        text: `${product.name} agregado al carrito`,
-        duration: 2000,
+        text: `${productos.nombre} agregado al carrito`,
+        duration: 3000,
         gravity: "bottom",
         position: "right",
-        backgroundColor: "linear-gradient(to right, #F527E0, #27F579)",
+        backgroundColor: "linear-gradient(to right, #00b09b, #F227F5)",
         stopOnFocus: true,
-    }).showToast()
+    }).showToast() 
 }
 
-function imprimirProductos(productos){
+function imprimir(productos){
     productList.innerHTML = ""
-    productos.forEach((producto) => {
-        const productosEnDiv = document.createElement ('div');
-        productosEnDiv.classList.add('products-card')
-        productosEnDiv.innerHTML = `
-    <img src="${producto.image}" alt="${producto.name}"/>
-    <h3>${producto.name}</h3>
-    <p>$ ${producto.price}</p>
-    <button data-id="${producto.id}">Agregar al carrito</button>
-    `;
-    productList.appendChild(productosEnDiv);
-})
-
-document.querySelectorAll(".products-card button").forEach((button)=>{
-    button.addEventListener("click",(evt)=>{
-        const productsId = parseInt(evt.target.dataset.id)
-        const productAdd = productos.find((item)=> item.id === productsId)
-        if(productsId){
-            agregarAlCarrito(productAdd)
-        }
+    productos.forEach((producto) =>{
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('products-card')
+        productDiv.innerHTML = `
+        <img src="${producto.image}" alt="${producto.nombre}"/>
+        <h3>${producto.nombre}</h3>
+        <p>$ ${producto.precio}</p>
+        <button data-id="${producto.id}">Añadir al carrito</button>
+        `;
+        productList.appendChild(productDiv);
     })
-})
-}
-    
-async function fetchUrl(){
-    try{
-    const fetchProducts = await fetch('products.json');
-    if(!fetchProducts.ok){
-        throw new Error("Error de respuesta de API", error);
-    }
-    const productos = await fetchProducts.json();
-    imprimirProductos(productos)
-}catch (error){
-    console.error('Error al encontrar API', error);
-}
+
+    document.querySelectorAll('.products-card button').forEach((button)=>{
+        button.addEventListener('click', (evt)=>{
+            const productsId = parseInt(evt.target.dataset.id)
+            const productsAdd = productos.find((p)=> p.id === productsId)
+            if(productsId){
+                agregarAlCarrito(productsAdd)
+            }
+        })
+    })
 }
 
-function animacionCarrito(){
-    console.table(cart)
-    if(cart.length === 0){
-        Swal.fire({
+
+async function urlProduct(){
+    try{
+        const resp = await fetch('products.json');
+        if(!resp.ok){
+            throw new Error("error en encontrar productos", Error);
+        }
+        const productos = await resp.json();
+        imprimir(productos);
+    }catch(error){
+        console.error('no se encontro api', error)
+    }
+}
+
+function animacionCarrito (){
+    console.table(carrito)
+    if(carrito.length === 0){
+        swal.fire({
             icon: 'info',
             title: "Carrito vacio",
-            text: "Aun no hay productos agregados al carrito"
+            text: "Aun no has agregado productos al carrito de compras"
         })
         return;
     }
-    let cartContent = '<ul style="list-style: none; padding: 0;">';
+    let carritoContent = '<ul style="list-style: none; padding: 0;">';
     let total = 0;
-    cart.forEach((item) => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    cartContent += `<li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dotted #ccc; padding-bottom: 5px;">
-    <span>${item.name} x ${item.quantity}</span>
+    carrito.forEach((item) =>{
+        const itemTotal = item.precio * item.quantity;
+        total += itemTotal;
+        carritoContent += `<li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dotted #ccc; padding-bottom: 5px;">
+    <span>${item.nombre} x ${item.quantity}</span>
     <span>$${itemTotal.toFixed(2)} 
-    <button class="remove-from-cart-btn" data-id="${item.id}" style="background-color: #dc3545; color: white; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer; margin-left:10px;">X</button>
+    <button class="remove-from-cart-btn" data-id="${item.id}"style="background-color: #dc3545; color: white; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer; margin-left:10px;">❌</button>
     </span>
-    </li>`;
+    </li>
+    `;
     });
-    cartContent += '</ul>'
-    cartContent += `<p style="font-weight: bold; font-size: 1.2rem; text-align: right; margin-top: 20px;">Total: $${total.toFixed(2)}</p>`;
+    carritoContent += '</ul>'
+    carritoContent += `<p style="font-weight: bold; font-size: 1.2rem; text-align: right; margin-top: 20px;">Total: $${total.toFixed(2)}</p>`;
 
     Swal.fire({
         title: "Tu Carrito de Compras",
-        html: cartContent,
+        html: carritoContent,
         width: 600,
         showCancelButton: true,
         confirmButtonText: "Finalizar Compra",
@@ -178,7 +181,7 @@ function animacionCarrito(){
                 button.addEventListener("click", (event) => {
                     const productIdToRemove = parseInt(event.target.dataset.id);
                     removeFromCart(productIdToRemove);
-            showCart();
+            animacionCarrito();
         });
     });
 },
@@ -189,23 +192,22 @@ function animacionCarrito(){
             title: "Compra realizada",
             text: `Gracias por tu compra!`,
         });
-        cart = [];
-        localStorage.removeItem("cart");
-        updateCartCount();
+        carrito = [];
+        localStorage.removeItem("carrito");
+        updateContador();
     }
 });
 }
 
 function removeFromCart(productId) {
-    cart = cart.filter((item) => item.id !== productId);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
+    carrito = carrito.filter((item) => item.id !== productId);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    updateContador();
 }
 
 verCarrito.addEventListener('click', animacionCarrito);
-updateCartCount()
-fetchUrl()
-
+updateContador()
+urlProduct()
 //--------------------------------------------------------------------------
 const formularioJs = document.getElementById("miFormulario");
 formularioJs.addEventListener("submit",(event)=>{
@@ -233,6 +235,6 @@ const datosGuardados = JSON.parse(localStorage.getItem("datosDeFormulario"));
     <hr>
     <h3>Simulación de tu compra financiada</h3>
     <hr>
-    <p>Con tu sueldo bruto, financiamos la compra en cuotas hasta el monto total de ${sueldoConAumento}</p>`
+    <p>Con tu sueldo bruto, financiamos la compra en cuotas hasta el monto total de $ ${sueldoConAumento}</p>`
     formularioJs.reset()
 });

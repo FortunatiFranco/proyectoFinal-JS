@@ -4,44 +4,14 @@ h1{
     font-size: 50px;
 }
 
-#carrusel-cont{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+main {
+    padding: 2rem;
 }
-
+/*---------------- BOTON DE VISTA--------------------------*/
 body.modo-noche{
     background-color: rgb(34, 22, 63);
     color: white;
 }
-
-#carrusel-cont img{
-    width: 1000px;
-    height: 750px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-}
-
-#carrusel-cont button{
-    height: 40px;
-    width: 25px;
-    font-size: 20px;
-}
-
-#btnanterior{
-    position: absolute;
-    margin-right: 1000px;
-    opacity: 0.7;
-}
-
-#btnsiguiente{
-    position: absolute;
-    margin-left: 1000px;
-    opacity: 0.7;
-}
-
 
 .boton-noche{
     width: 100%;
@@ -62,7 +32,45 @@ body.modo-noche{
     border-radius: 20px;
     background-color: white;
     font-family: 'Times New Roman', Times, serif;
+}
+/*---------------- CARRUSEL--------------------------*/
+#carrusel-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
 
+#carrusel-cont img{
+    width: 1000px;
+    height: 750px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+#carrusel-cont button{
+    height: 30px;
+    width: 25px;
+    font-size: 22px;
+    color: white;
+    background-color: green;
+}
+
+#btnanterior{
+    position: absolute;
+    margin-right: 1000px;
+}
+
+#btnsiguiente{
+    position: absolute;
+    margin-left: 1000px;
+}
+
+/*----------------PRODUCTOS--------------------------*/
+h2{
+    text-align: center;
+    font-size: 35px;
 }
 
 #listaProductos{
@@ -81,52 +89,12 @@ body.modo-noche{
     border: 2px solid red;
 }
 
-.formulario form{
+#ver-carrito {
     display: flex;
-    font-size: 24px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    flex-direction: column;
-    justify-self: center;
-    text-align: center;
-    width: 30%;
-    height: 20px;
-    padding: 5px;
-    margin-top: 50px;
-}
-
-.formulario button{
-    margin-top: 15px;
-}
-
-
-
-#resultadoSueldo{
-    display: block;
-    text-align: center;
-    justify-self: center;
-    margin-top: 180px;
-    border: 3px solid red;
-    width: 50%;
-    font-size: 18px;
-}
-
-h2{
-    text-align: center;
-    font-size: 35px;
-}
-
-.tituloForm{
-    text-align: center;
-    margin-top: 40px;
-    font-size: 30px;
-}
-
-.texto-h4{
-    font-size: 24px;
-    text-align: center;
-}
-
-#CarritoBtn {
+    justify-self: end;
+    position: fixed;
+    margin-top: 2px;
+    margin-right: 200px;
     background-color: #28a745;
     color: white;
     border: none;
@@ -137,20 +105,17 @@ h2{
     transition: background-color 0.3s ease;
 }
 
-#CarritoBtn:hover {
+#ver-carrito:hover {
     background-color: #218838;
 }
 
-main {
-    padding: 2rem;
-}
 
 #catalogo h2 {
     text-align: center;
     margin-bottom: 1.5rem;
 }
 
-#listaProd {
+#product-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
@@ -203,4 +168,47 @@ main {
 
 .products-card button:hover {
     background-color: #0056b3;
+}
+
+/*----------------FORMULARIO---------------------*/
+
+.formulario form{
+    display: flex;
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    flex-direction: column;
+    justify-self: center;
+    text-align: center;
+    width: 30%;
+    height: 20px;
+    padding: 5px;
+    margin-top: 50px;
+}
+
+.formulario button{
+    margin-top: 15px;
+}
+
+
+
+#resultadoSueldo{
+    display: block;
+    text-align: center;
+    justify-self: center;
+    margin-top: 180px;
+    border: 3px solid red;
+    width: 50%;
+    font-size: 18px;
+}
+
+
+.tituloForm{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+.texto-h4{
+    font-size: 24px;
+    text-align: center;
 }
