@@ -212,6 +212,13 @@ urlProduct()
 const formularioJs = document.getElementById("miFormulario");
 formularioJs.addEventListener("submit",(event)=>{
     event.preventDefault();
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Simulación lograda con exito",
+        showConfirmButton: false,
+        timer: 1800
+});
 
 const nombreForm = document.getElementById("nombre").value;
 const emailForm = document.getElementById("email").value;
